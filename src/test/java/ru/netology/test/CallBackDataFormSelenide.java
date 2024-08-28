@@ -18,7 +18,7 @@ public class CallBackDataFormSelenide {
 
             $("[data-test-id=city] input").sendKeys("Москва");
 
-            LocalDate localDate = LocalDate.now().plusDays(10);
+            LocalDate localDate = LocalDate.now().plusDays(3);
             String date = DateTimeFormatter.ofPattern("dd.MM.yyyy").format(localDate);
 
             $("[data-test-id=date] input").sendKeys(Keys.CONTROL + "a");
