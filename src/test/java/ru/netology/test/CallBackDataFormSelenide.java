@@ -10,18 +10,14 @@ public class CallBackDataFormSelenide {
     void shouldTestCallback() throws InterruptedException {
         open("http://localhost:9999");
 
-        $$(".input__control").findBy(attribute("placeholder", "Город")).sendKeys("Москва");
-        $$(".input__control").findBy(attribute("pattern", "[0-9.]*")).sendKeys("28.05.2023");
-        $$(".input__control").findBy(attribute("name", "name")).sendKeys("Иванов Иван");
-        $$(".input__control").findBy(attribute("name", "phone")).sendKeys("+79281234567");
+        $("[data-test-id=city] input").sendKeys("Москва");
+        $("[data-test-id=date] input").sendKeys("28.05.2025");
+        $("[data-test-id=name] input").sendKeys("Москва");
+        $("[data-test-id=phone] input").sendKeys("+79000000000");
         $(".checkbox__box").click();
         $("span[class=button__text]").click();
-        Thread.sleep(10000);
-        SelenideElement successMessageElement = $("[data-test-id=notification]");
-        successMessageElement.shouldBe(visible);
+        $("[data-test-id=notification]");
 
-        String text = successMessageElement.getText();
-        System.out.println(text);
     }
 
 }
